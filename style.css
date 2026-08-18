@@ -1,0 +1,770 @@
+/* ==========================================================================
+   Bhoj Kuthir (ভোজকুঠির) - Modern Bengali Heritage Theme
+   Palette: Terracotta Red, Warm Ivory, Brass/Kansa Gold, Deep Charcoal
+   ========================================================================== */
+
+:root {
+    --terracotta: #8B251B;
+    --terracotta-dark: #661811;
+    --terracotta-light: #A7372B;
+    --kansa-gold: #C99738;
+    --gold-accent: #E5B869;
+    --ivory-bg: #FAF6EE;
+    --cream-surface: #FFFFFF;
+    --charcoal: #231F20;
+    --muted-text: #5A5353;
+    --border-warm: #E2D7C3;
+    --veg-green: #2E7D32;
+    --nonveg-red: #C62828;
+    --shadow-soft: 0 10px 30px rgba(139, 37, 27, 0.08);
+    --shadow-hover: 0 15px 35px rgba(139, 37, 27, 0.15);
+    --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--ivory-bg);
+    color: var(--charcoal);
+    line-height: 1.65;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .bengali-title {
+    font-family: 'Noto Serif Bengali', 'Cinzel', serif;
+    font-weight: 700;
+    color: var(--terracotta);
+}
+
+.bengali-title {
+    font-family: 'Galada', cursive;
+}
+
+/* ================= Top Navigation Bar ================= */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(250, 246, 238, 0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 2px solid var(--border-warm);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+}
+
+.brand-logo {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-logo .bengali-title {
+    font-size: 1.85rem;
+    color: var(--terracotta);
+    line-height: 1.1;
+    letter-spacing: 0.5px;
+}
+
+.brand-logo .sub-title {
+    font-size: 0.68rem;
+    letter-spacing: 2.5px;
+    font-weight: 600;
+    color: var(--kansa-gold);
+    font-family: 'Cinzel', serif;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.nav-link {
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    padding: 0.5rem 0.8rem;
+    border-radius: 4px;
+    position: relative;
+    transition: var(--transition-smooth);
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--terracotta);
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0.8rem;
+    right: 0.8rem;
+    height: 2px;
+    background-color: var(--terracotta);
+}
+
+.mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.mobile-toggle .bar {
+    width: 26px;
+    height: 3px;
+    background-color: var(--terracotta);
+    border-radius: 2px;
+    transition: var(--transition-smooth);
+}
+
+/* ================= Single Page View Management ================= */
+.page-view {
+    display: none;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.page-view.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem;
+}
+
+/* Common Section Header */
+.page-header {
+    text-align: center;
+    background: linear-gradient(180deg, rgba(201, 151, 56, 0.12) 0%, rgba(250, 246, 238, 0) 100%);
+    padding: 4rem 1.5rem 2rem;
+    border-bottom: 1px solid var(--border-warm);
+}
+
+.page-header h2 {
+    font-size: 2.3rem;
+    margin: 0.5rem 0;
+}
+
+.page-header p {
+    color: var(--muted-text);
+    font-size: 1.05rem;
+}
+
+.alpona-motif {
+    display: inline-block;
+    color: var(--kansa-gold);
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+}
+
+/* ================= Page 1: Hero & Features ================= */
+.hero-section {
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 1.5rem;
+    background: radial-gradient(circle at center, #8B251B 0%, #4D0F0A 100%);
+    color: #FFFFFF;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url('data:image/svg+xml;utf8,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><path d="M30 0 L60 30 L30 60 L0 30 Z" fill="none" stroke="rgba(201,151,56,0.08)" stroke-width="1.5"/></svg>');
+    opacity: 0.6;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 3.2rem;
+    color: #FFF9EE;
+    margin: 1rem 0;
+    line-height: 1.25;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.hero-tagline {
+    font-size: 1.2rem;
+    color: #F1DEC9;
+    margin-bottom: 2.2rem;
+    font-weight: 300;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1.2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.85rem 1.8rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: var(--transition-smooth);
+}
+
+.btn-primary {
+    background-color: var(--kansa-gold);
+    color: #1a1005;
+}
+
+.btn-primary:hover {
+    background-color: var(--gold-accent);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+}
+
+.btn-secondary:hover {
+    background-color: #FFFFFF;
+    color: var(--terracotta);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--terracotta);
+    border: 2px solid var(--terracotta);
+}
+
+.btn-outline:hover {
+    background-color: var(--terracotta);
+    color: #FFFFFF;
+}
+
+.btn-block {
+    width: 100%;
+}
+
+/* Highlights Grid */
+.highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.highlight-card {
+    background: var(--cream-surface);
+    padding: 2.5rem 2rem;
+    border-radius: 10px;
+    border: 1px solid var(--border-warm);
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+    transition: var(--transition-smooth);
+}
+
+.highlight-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--kansa-gold);
+}
+
+.card-icon {
+    font-size: 2.4rem;
+    color: var(--kansa-gold);
+    margin-bottom: 1rem;
+}
+
+.highlight-card h3 {
+    font-size: 1.35rem;
+    margin-bottom: 0.8rem;
+}
+
+.highlight-card p {
+    color: var(--muted-text);
+    font-size: 0.95rem;
+}
+
+/* Spotlight Thali */
+.thali-spotlight {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 3rem;
+    align-items: center;
+    background-color: var(--cream-surface);
+    border: 1px solid var(--border-warm);
+    border-radius: 12px;
+    box-shadow: var(--shadow-soft);
+    padding: 3rem;
+}
+
+.badge {
+    background-color: rgba(139, 37, 27, 0.1);
+    color: var(--terracotta);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.spotlight-text h2 {
+    font-size: 2.1rem;
+    margin: 0.8rem 0;
+}
+
+.spotlight-text p {
+    color: var(--muted-text);
+    margin-bottom: 1.5rem;
+}
+
+.feature-list {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.feature-list li {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--charcoal);
+}
+
+.spotlight-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ornament-border {
+    width: 250px;
+    height: 250px;
+    border: 4px dashed var(--kansa-gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, #FDF9F2 0%, #F5E8D3 100%);
+    box-shadow: 0 0 0 10px rgba(201, 151, 56, 0.15);
+}
+
+.inner-art {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.bengali-big {
+    font-family: 'Galada', cursive;
+    font-size: 3rem;
+    color: var(--terracotta);
+    display: block;
+}
+
+.inner-art p {
+    font-size: 0.82rem;
+    color: var(--muted-text);
+    font-weight: 600;
+}
+
+/* ================= Page 2: Heritage ================= */
+.heritage-content {
+    max-width: 900px;
+}
+
+.story-block {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.story-block h3 {
+    font-size: 1.9rem;
+    margin-bottom: 1.2rem;
+}
+
+.story-block p {
+    font-size: 1.05rem;
+    color: var(--muted-text);
+    margin-bottom: 1rem;
+}
+
+.heritage-pillars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.pillar-card {
+    background: var(--cream-surface);
+    border-left: 4px solid var(--terracotta);
+    padding: 1.8rem;
+    border-radius: 0 8px 8px 0;
+    box-shadow: var(--shadow-soft);
+}
+
+.pillar-card h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+}
+
+.pillar-card p {
+    color: var(--muted-text);
+    font-size: 0.92rem;
+}
+
+.zamindari-quote {
+    background: linear-gradient(90deg, #8B251B, #661811);
+    color: #FFF;
+    text-align: center;
+    padding: 2.2rem;
+    border-radius: 8px;
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: 1.35rem;
+    font-style: italic;
+}
+
+.zamindari-quote span {
+    display: block;
+    font-size: 0.9rem;
+    margin-top: 0.8rem;
+    font-style: normal;
+    color: var(--gold-accent);
+}
+
+/* ================= Page 3: Menu Tabs & Cards ================= */
+.menu-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+}
+
+.tab-btn {
+    background: var(--cream-surface);
+    border: 1px solid var(--border-warm);
+    padding: 0.65rem 1.3rem;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: var(--charcoal);
+    transition: var(--transition-smooth);
+}
+
+.tab-btn:hover, .tab-btn.active {
+    background-color: var(--terracotta);
+    color: #FFF;
+    border-color: var(--terracotta);
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.8rem;
+}
+
+.menu-card {
+    background: var(--cream-surface);
+    border: 1px solid var(--border-warm);
+    border-radius: 10px;
+    padding: 1.6rem;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: var(--transition-smooth);
+}
+
+.menu-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--kansa-gold);
+}
+
+.menu-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.6rem;
+}
+
+.menu-item-header h4 {
+    font-size: 1.15rem;
+    color: var(--terracotta-dark);
+}
+
+.menu-item-header .price {
+    font-weight: 700;
+    color: var(--kansa-gold);
+    font-size: 1.15rem;
+}
+
+.menu-card .desc {
+    color: var(--muted-text);
+    font-size: 0.88rem;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.tag-veg, .tag-nonveg {
+    align-self: flex-start;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+}
+
+.tag-veg {
+    background-color: rgba(46, 125, 50, 0.1);
+    color: var(--veg-green);
+    border: 1px solid var(--veg-green);
+}
+
+.tag-nonveg {
+    background-color: rgba(198, 40, 40, 0.1);
+    color: var(--nonveg-red);
+    border: 1px solid var(--nonveg-red);
+}
+
+/* ================= Page 4: Reservation & Contact ================= */
+.reservation-wrapper {
+    display: grid;
+    grid-template-columns: 1.4fr 0.9fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.form-container {
+    background: var(--cream-surface);
+    border: 1px solid var(--border-warm);
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: var(--shadow-soft);
+}
+
+.form-title h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.3rem;
+}
+
+.form-title p {
+    color: var(--muted-text);
+    font-size: 0.9rem;
+    margin-bottom: 1.8rem;
+}
+
+.form-group {
+    margin-bottom: 1.4rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+}
+
+label {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: var(--charcoal);
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-warm);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    background-color: #FAFAFA;
+    transition: var(--transition-smooth);
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--terracotta);
+    background-color: #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(139, 37, 27, 0.12);
+}
+
+.error-msg {
+    color: var(--nonveg-red);
+    font-size: 0.75rem;
+    display: block;
+    margin-top: 0.3rem;
+    min-height: 1rem;
+}
+
+.confirmation-banner {
+    margin-top: 1.5rem;
+    background-color: #E8F5E9;
+    border: 1px solid var(--veg-green);
+    color: #1B5E20;
+    padding: 1.2rem;
+    border-radius: 8px;
+}
+
+.confirmation-banner.hidden {
+    display: none;
+}
+
+.info-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.info-card {
+    background: var(--cream-surface);
+    border: 1px solid var(--border-warm);
+    padding: 1.8rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow-soft);
+}
+
+.info-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+}
+
+.info-card p {
+    color: var(--muted-text);
+    font-size: 0.92rem;
+    margin-bottom: 0.4rem;
+}
+
+.special-notice {
+    background-color: rgba(201, 151, 56, 0.12);
+    border-color: var(--kansa-gold);
+}
+
+/* ================= Footer ================= */
+.site-footer {
+    background-color: var(--charcoal);
+    color: #ECE7DF;
+    padding: 4rem 1.5rem 1.5rem;
+    margin-top: 4rem;
+    border-top: 4px solid var(--terracotta);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2.5rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-brand {
+    font-family: 'Galada', cursive;
+    font-size: 2.2rem;
+    color: var(--gold-accent);
+    display: block;
+    margin-bottom: 0.8rem;
+}
+
+.footer-col h4 {
+    color: #FFF;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-col ul li a {
+    color: #C2BBB2;
+    text-decoration: none;
+    transition: var(--transition-smooth);
+}
+
+.footer-col ul li a:hover {
+    color: var(--gold-accent);
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.82rem;
+    color: #9C958B;
+    padding-top: 1.5rem;
+}
+
+/* ================= Responsive Breakpoints ================= */
+@media (max-width: 900px) {
+    .thali-spotlight, .reservation-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content h1 {
+        font-size: 2.4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .mobile-toggle {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--ivory-bg);
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 1rem;
+        border-bottom: 2px solid var(--border-warm);
+        display: none;
+    }
+
+    .nav-menu.show {
+        display: flex;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
